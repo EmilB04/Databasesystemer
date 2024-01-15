@@ -1,1 +1,1 @@
-SELECT * FROM pasienter.pasient_oversikt;
+SELECT * FROM oblig.oblig_1_2;

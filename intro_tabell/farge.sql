@@ -1,0 +1,5 @@
+CREATE TABLE farge (
+id INT NOT NULL,
+navn VARCHAR(25),
+CONSTRAINT pk_farge PRIMARY KEY (id)
+);

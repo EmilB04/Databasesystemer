@@ -1,8 +1,11 @@
 CREATE TABLE informasjon_Emil (
-	fodselsNummer VARCHAR(11) NOT NULL,
+	fodselsnummer VARCHAR(11) NOT NULL,
     navn VARCHAR(40) NOT NULL,
-    brukerBriller BOOLEAN,
-    adresse VARCHAR(75),
-    alder INT(5),
-    CONSTRAINT pk_info_emil PRIMARY KEY (fodselsNummer)
+    brukerbriller BOOLEAN,
+    gatenavn VARCHAR(25),
+    husnummer VARCHAR(8),
+    postnummer VARCHAR(4),
+    sted VARCHAR(20),
+    alder INT(3),
+    CONSTRAINT pk_info_emil PRIMARY KEY (fodselsnummer)
 );

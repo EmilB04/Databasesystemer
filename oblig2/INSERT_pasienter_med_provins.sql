@@ -1,4 +1,3 @@
-
 INSERT INTO pasienter_med_provins VALUES(1,'Donald','Waterfield','M',23054,'Barrie','ON','NULL',156,65);
 INSERT INTO pasienter_med_provins VALUES(2,'Mickey','Baasha','M','29734','Dundas','ON','Sulfa',185,76);
 INSERT INTO pasienter_med_provins VALUES(3,'Jiji','Sharma','M','21068','Hamilton','ON','Penicillin',194,106);

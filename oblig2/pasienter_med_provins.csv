@@ -1,4 +1,4 @@
-﻿pasient_id;fornavn;etternavn;kjonn;fodselsdag;by;provins_id;allergier;hoyde;vekt
+pasient_id;fornavn;etternavn;kjonn;fodselsdag;by;provins_id;allergier;hoyde;vekt
 1;Donald;Waterfield;M;12.02.1963;Barrie;ON;NULL;156;65
 2;Mickey;Baasha;M;28.05.1981;Dundas;ON;Sulfa;185;76
 3;Jiji;Sharma;M;05.09.1957;Hamilton;ON;Penicillin;194;106
@@ -418,7 +418,7 @@
 417;Elizabeth;Spencer;F;05.09.1973;Stoney Creek;ON;NULL;160;63
 418;Bertha;Martin;F;26.07.1994;Orangeville;ON;NULL;131;69
 419;Walburga;Masaki;F;25.10.1959;Brantford;ON;NULL;151;73
-420;Velu;Galv�n;M;25.03.2016;Walnut Grove;AB;NULL;59;15
+420;Velu;Galv?n;M;25.03.2016;Walnut Grove;AB;NULL;59;15
 421;Eben;Quest;M;20.10.1995;Hamilton;ON;NULL;143;78
 422;Penelope;Taggart;F;18.06.1951;Hamilton;ON;Penicillin;131;69
 423;Vicki;Cenva;F;24.06.2000;Hamilton;ON;Penicillin;167;94

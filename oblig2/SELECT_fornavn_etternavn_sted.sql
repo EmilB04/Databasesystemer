@@ -1,0 +1,1 @@
+SELECT fornavn, etternavn, sted FROM pasienter_med_provins;

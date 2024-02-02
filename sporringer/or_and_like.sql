@@ -1,0 +1,1 @@
+SELECT * FROM garn WHERE pris = 42 or navn LIKE 'Alpa%' and pinnestorrelse >3;

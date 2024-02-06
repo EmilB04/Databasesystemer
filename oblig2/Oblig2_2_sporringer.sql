@@ -9,4 +9,7 @@
 /*Skriv en spørring som finner fornavn, etternavn og fødselsdag for de pasientene som er høyere enn 160 cm og tyngre enn 70 kg.*/
 /*SELECT fornavn, etternavn, fodselsdag FROM pasienter_med_provins WHERE hoyde > 160 and vekt > 70;*/
 /*Skriv en spørring som lager en liste med alle pasienter som har en kjent allergi og kommer fra Hamilton. Listen skal inkludere fornavn, etternavn og allergier.*/
-/*-----------*/
+SELECT p.fornavn, p.etternavn, p.allergier
+FROM pasienter_med_provins p
+WHERE p.sted = 'Hamilton' AND p.allergier IS NOT NULL
+ORDER BY pasient_id;

@@ -3,19 +3,17 @@ SELECT
     (SELECT COUNT(*) FROM oblig_1_2 WHERE kjonn = 'M') AS totalt_mannlige_pasienter,
     (SELECT COUNT(*) FROM oblig_1_2 WHERE kjonn = 'F') AS totalt_kvinnelige_pasienter;
 
-
-
 -- Vis pasient_id og diagnose for alle som har vært innlagt flere ganger med samme diagnose --
 SELECT pasient_id, diagnose
 FROM innleggelser
--- ikke ferdig --
-;
-
+GROUP BY pasient_id, diagnose
+HAVING COUNT(*) > 1;
 
 -- Vis sted og antall pasienter tilknyttet dette stedet. Sorter listen fra flest til færrest pasienter, så alfabetisk på stedsnavnet. --
-
-
-
+SELECT sted, COUNT(pasient_id) as antall_pasienter
+FROM pasienter_med_provins
+GROUP BY sted
+ORDER BY antall_pasienter DESC, sted ASC;
 
 -- Vis fornavn, etternavn og rolle for alle personer i databasen. Rollen er enten Pasient eller Lege --   
 

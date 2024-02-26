@@ -1,10 +1,15 @@
 -- Vis totalt antall mannlige pasienter og kvinnelige pasienter som ligger i pasient tabellen. Vis begge resultatene i samme rad. -- 
+SELECT 
+    (SELECT COUNT(*) FROM oblig_1_2 WHERE kjonn = 'M') AS totalt_mannlige_pasienter,
+    (SELECT COUNT(*) FROM oblig_1_2 WHERE kjonn = 'F') AS totalt_kvinnelige_pasienter;
 
 
 
 -- Vis pasient_id og diagnose for alle som har vært innlagt flere ganger med samme diagnose --
-
-
+SELECT pasient_id, diagnose
+FROM innleggelser
+-- ikke ferdig --
+;
 
 
 -- Vis sted og antall pasienter tilknyttet dette stedet. Sorter listen fra flest til færrest pasienter, så alfabetisk på stedsnavnet. --

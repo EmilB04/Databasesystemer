@@ -11,8 +11,7 @@ CREATE TABLE pasienter_med_provins (
     hoyde INT,
     vekt INT,
     
-    CONSTRAINT pk_pmp PRIMARY KEY (pasient_id, provins_id),
-    CONSTRAINT fk_provins FOREIGN KEY (provins_id) REFERENCES provins(provins_id),
-    CONSTRAINT fk_pasienter FOREIGN KEY (pasient_id) REFERENCES oblig_1_2(pasient_id)
+    CONSTRAINT pk_pmp PRIMARY KEY (pasient_id),
+    CONSTRAINT fk_provins FOREIGN KEY (provins_id) REFERENCES provins(provins_id)
 );
 

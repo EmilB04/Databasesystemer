@@ -30,8 +30,7 @@ ORDER BY antall asc;
 -- For alle pasienter født på 1970-tallet vis fornavn, etternavn og fødselsdato. Sorter listen fra tidligst født til senest født. -- 
 SELECT fornavn, etternavn, fodselsdag
 FROM pasienter_med_provins
-WHERE fodselsdag LIKE "%197%"
-/*WHERE fodselsdato BETWEEN '1970-01-01' AND '1979-12-31'*/
+WHERE fodselsdato BETWEEN '1970-01-01' AND '1979-12-31'
 ORDER BY fodselsdag asc;
 
 

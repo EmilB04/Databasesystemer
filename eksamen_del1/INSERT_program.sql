@@ -2,33 +2,33 @@ INSERT INTO program
 VALUES (
 	   1, 
 	   'Mandag', 
-	   (SELECT OvelseID as "Oppvarming" FROM ovelser WHERE OvelseID = 'Jogging'),
-	   (SELECT OvelseID as "Øvelse 1" FROM ovelser WHERE OvelseID = 'Benkpress'),
-	   (SELECT OvelseID as "Øvelse 2" FROM ovelser WHERE OvelseID = 'Roing-med-stang-eller-manualer'),
-	   (SELECT OvelseID as "Øvelse 3" FROM ovelser WHERE OvelseID = 'Skulderpress'),
-	   (SELECT OvelseID as "Øvelse 4" FROM ovelser WHERE OvelseID = 'Bicepscurls'),
-	   (SELECT OvelseID as "Øvelse 5" FROM ovelser WHERE OvelseID = 'Triceps-dips'),
-	   (SELECT OvelseID as "Avslutning" FROM ovelser WHERE OvelseID = 'Nedkjøling')
+	   (SELECT OvelseID as "Jogging" FROM ovelser WHERE OvelseID = '1'),
+	   (SELECT OvelseID as "Benkpress" FROM ovelser WHERE OvelseID = '9'),
+	   (SELECT OvelseID as "Roing med stang eller manualer" FROM ovelser WHERE OvelseID = '10'),
+	   (SELECT OvelseID as "Skulderpress" FROM ovelser WHERE OvelseID = '11'),
+	   (SELECT OvelseID as "Bicepscurl" FROM ovelser WHERE OvelseID = '12'),
+	   (SELECT OvelseID as "Triceps dips eller triceps pushdowns" FROM ovelser WHERE OvelseID = '13'),
+	   (SELECT OvelseID as "Nedkjøling" FROM ovelser WHERE OvelseID = '3')
 );
 
 INSERT INTO program
 VALUES (
 	   2, 
 	   'Tirsdag', 
-	   (SELECT OvelseID FROM ovelser WHERE OvelseID = 'Jogging'),
-	   (SELECT OvelseID FROM ovelser WHERE OvelseID = 'Løping'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '1'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '4'),
 	   NULL,
 	   NULL,
 	   NULL,
 	   NULL,
-	   (SELECT OvelseID FROM ovelser WHERE OvelseID = 'Nedkjøling')
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '3')
 );
 
 INSERT INTO program
 VALUES (
 	   3, 
 	   'Onsdag', 
-	   (SELECT OvelseID FROM ovelser WHERE OvelseID = 'Lett-aktivitet'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '21'),
 	   NULL,
        NULL,
 	   NULL,
@@ -41,13 +41,13 @@ INSERT INTO program
 VALUES (
 	   4, 
 	   'Torsdag', 
-	   (SELECT OvelseID FROM ovelser WHERE OvelseID = 'Jogging'),
-	   (SELECT OvelseID FROM ovelser WHERE OvelseID = 'Knebøy'),
-	   (SELECT OvelseID FROM ovelser WHERE OvelseID = 'Utfall'),
-	   (SELECT OvelseID FROM ovelser WHERE OvelseID = 'Rumensk-markløft'),
-	   (SELECT OvelseID FROM ovelser WHERE OvelseID = 'Leg-curls'),
-	   (SELECT OvelseID FROM ovelser WHERE OvelseID = 'Leg-press'),
-	   (SELECT OvelseID FROM ovelser WHERE OvelseID = 'Nedkjøling')
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '1'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '14'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '15'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '16'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '17'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '18'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '3')
 );
 
 INSERT INTO program
@@ -55,7 +55,7 @@ VALUES (
 	   5, 
 	   'Fredag', 
 	   NULL,
-	   (SELECT OvelseID as "Velgbar" FROM ovelser WHERE OvelseID = 'Sykling/Svømming'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '22'),
 	   NULL,
 	   NULL,
 	   NULL,
@@ -68,7 +68,7 @@ VALUES (
 	   6, 
 	   'Lørdag', 
 	   NULL,
-	   (SELECT OvelseID as "Velgbar" FROM ovelser WHERE OvelseID = 'Valgfri-aktivitet'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '19'),
 	   NULL,
 	   NULL,
 	   NULL,
@@ -81,10 +81,12 @@ VALUES (
 	   7, 
 	   'Søndag', 
 	   NULL,
-	   (SELECT OvelseID as "Velgbar" FROM ovelser WHERE OvelseID = 'Full-hvile/lett-aktivitet'),
+	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '20'),
        NULL,
 	   NULL,
 	   NULL,
 	   NULL,
 	   NULL
 );
+
+

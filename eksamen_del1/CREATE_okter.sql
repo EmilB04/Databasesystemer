@@ -1,13 +1,10 @@
-CREATE table okter ( 
+CREATE table ukeOversikt ( 
 	OktID INT NOT NULL,
-    ProgramID INT NOT NULL,
-    oktType VARCHAR(25),
-    dato DATE,
-    notater VARCHAR(200),
+    UkePlan INT NOT NULL,
     BrukerID int,
     
     CONSTRAINT pk_okter PRIMARY KEY (OktID),
     CONSTRAINT fk_brukere FOREIGN KEY (BrukerID) REFERENCES brukere(BrukerID),
-    CONSTRAINT fk_program FOREIGN KEY (ProgramID) REFERENCES program(program_id)
+    CONSTRAINT fk_uke FOREIGN KEY (UkePlan) REFERENCES ukePlan(PlanID)
     
 );

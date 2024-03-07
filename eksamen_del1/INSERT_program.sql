@@ -1,4 +1,4 @@
-INSERT INTO program
+INSERT INTO programmer
 VALUES (
 	   1, 
 	   'Mandag', 
@@ -11,7 +11,7 @@ VALUES (
 	   (SELECT OvelseID as "Nedkjøling" FROM ovelser WHERE OvelseID = '3')
 );
 
-INSERT INTO program
+INSERT INTO programmer
 VALUES (
 	   2, 
 	   'Tirsdag', 
@@ -24,7 +24,7 @@ VALUES (
 	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '3')
 );
 
-INSERT INTO program
+INSERT INTO programmer
 VALUES (
 	   3, 
 	   'Onsdag', 
@@ -37,7 +37,7 @@ VALUES (
 	   NULL
 );
 
-INSERT INTO program
+INSERT INTO programmer
 VALUES (
 	   4, 
 	   'Torsdag', 
@@ -50,7 +50,7 @@ VALUES (
 	   (SELECT OvelseID FROM ovelser WHERE OvelseID = '3')
 );
 
-INSERT INTO program
+INSERT INTO programmer
 VALUES (
 	   5, 
 	   'Fredag', 
@@ -63,7 +63,7 @@ VALUES (
 	   NULL
 );
 
-INSERT INTO program
+INSERT INTO programmer
 VALUES (
 	   6, 
 	   'Lørdag', 
@@ -76,7 +76,7 @@ VALUES (
 	   NULL
 );
 
-INSERT INTO program
+INSERT INTO programmer
 VALUES (
 	   7, 
 	   'Søndag', 

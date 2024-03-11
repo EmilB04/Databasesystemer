@@ -1,8 +1,7 @@
 CREATE VIEW bruker_progresjon AS
 SELECT
     ovelsesLogg.BrukerID,
-    brukere.fornavn,
-    brukere.etternavn,
+    CONCAT(brukere.fornavn, ' ', brukere.etternavn) AS UtøverNavn,
     ovelsesLogg.OvelseID,
     ovelser.ovelseNavn,
     MIN(ovelsesLogg.dato) AS forsteDato,

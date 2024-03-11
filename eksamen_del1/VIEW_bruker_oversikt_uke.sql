@@ -5,7 +5,7 @@ SELECT
     ukeOversikt.TrenerID AS TrenerID,
     CONCAT(trener.fornavn, ' ', trener.etternavn) AS TrenerNavn,
     ukePlan_UkeDager.ukedager AS Ukedag,
-    ukeOversikt.UkePlan AS PlanID,
+    ukeOversikt.PlanID AS PlanID,
     programmer.program_navn AS ProgramNavn,
     okt.oktID,
     okt.oktType
@@ -16,7 +16,7 @@ JOIN
 JOIN
     brukere AS trener ON ukeOversikt.TrenerID = trener.BrukerID
 JOIN
-    ukePlan ON ukeOversikt.UkePlan = ukePlan.PlanID
+    ukePlan ON ukeOversikt.PlanID = ukePlan.PlanID
 JOIN
     ukePlan_UkeDager ON ukePlan.PlanID = ukePlan_UkeDager.PlanID
 JOIN

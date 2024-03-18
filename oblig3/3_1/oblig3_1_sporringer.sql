@@ -16,9 +16,12 @@ GROUP BY sted
 ORDER BY antall_pasienter DESC, sted ASC;
 
 -- Vis fornavn, etternavn og rolle for alle personer i databasen. Rollen er enten Pasient eller Lege --   
-/*Hoppet over, ettersom jeg ikke vet hvordan jeg gjør den pr. 16.02.24*/
-
-
+SELECT fornavn, etternavn, 'Pasient' AS rolle
+FROM pasienter_med_provins
+UNION /*Fikk hjelp av CHAT GPT med denne*/
+SELECT fornavn, etternavn, 'Lege' AS rolle
+FROM leger
+ORDER BY fornavn;
 
 -- Vis alle allergier sortert på antall. Fjern NKA-verdier fra spørringen. -- 
 SELECT allergier, COUNT(*) as antall

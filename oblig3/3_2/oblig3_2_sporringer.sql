@@ -26,6 +26,15 @@ WHERE
     (lege_id LIKE "%2%" and length(pasient_id) = 3);
 
 -- Vis fornavn, etternavn, og antall innleggelser hver lege har håndtert. Hver innleggelse er håndtert av en lege. -- 
-SELECT pmp.fornavn, pmp.etternavn, COUNT(i.innleggelsesdato) as lege_håndteringer
-FROM innleggelser i, pasienter_med_provins pmp
-JOIN pasienter_med_provins.pasient_id on i.pasient_id
+SELECT l.fornavn, l.etternavn, COUNT(i.innleggelsesdato) as antall_håndteringer
+FROM leger l
+JOIN innleggelser i ON l.lege_id = i.lege_id
+GROUP BY l.fornavn, l.etternavn;
+
+-- For hver lege, vis ID, fullt navn samt første og siste innleggelsesdato de håndterte -- 
+SELECT l.lege_id, CONCAT(l.fornavn, ' ', l.etternavn) AS fullt_navn, MIN(i.innleggelsesdato) AS første_innleggelsesdato, MAX(i.innleggelsesdato) AS siste_innleggelsesdato
+FROM leger l
+JOIN innleggelser i ON l.lege_id = i.lege_id
+GROUP BY l.lege_id, fullt_navn;
+
+-- Vis totalt antall pasienter for hver provins (ved navn). Sorter fra høyest til lavest antall -- 

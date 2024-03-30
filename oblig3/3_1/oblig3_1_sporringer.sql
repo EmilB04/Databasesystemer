@@ -33,13 +33,13 @@ ORDER BY antall asc;
 -- For alle pasienter født på 1970-tallet vis fornavn, etternavn og fødselsdato. Sorter listen fra tidligst født til senest født. -- 
 SELECT fornavn, etternavn, fodselsdag
 FROM pasienter_med_provins
-WHERE fodselsdato BETWEEN '1970-01-01' AND '1979-12-31'
+WHERE fodselsdag BETWEEN '1970-01-01' AND '1979-12-31'
 ORDER BY fodselsdag asc;
 
 
 
 -- Vi vil vise pasientens fulle navn i en kolonne. Etternavn med bare store bokstaver og fornavnet med små bokstaver. Skill fornavn og etternavn med komma. Sorter listen på fornavn fra å-a. Eks. : SMITH,jane -- 
-SELECT UPPER(etternavn) + ', ' + LOWER(fornavn) as fullt_navn
+SELECT CONCAT(UPPER(etternavn), ',', LOWER(fornavn)) AS fullt_navn
 FROM pasienter_med_provins
 ORDER BY fornavn DESC;
 

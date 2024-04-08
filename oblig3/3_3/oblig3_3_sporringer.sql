@@ -31,4 +31,22 @@ FROM innleggelser i
 JOIN pasienter_med_provins pmp on i.pasient_id = pmp.pasient_id
 JOIN leger l on i.lege_id = l.lege_id
 WHERE diagnose = "Epilepsy" and l.fornavn = "Lisa"
-ORDER BY l.lege_id
+ORDER BY l.lege_id;
+
+-- Oppgave 4 -- 
+-- Alle pasienter som har vært innlagt kan se sine egne medisinske dokumenter. Pasientene får derfor et midlertidig passord etter første innleggelse. vis pasient id og midlertidig passord. --
+-- Passordet er som følgende: pasient_id, lengden av pasientens etternavn, fødselsåret til pasienten -- 
+SELECT 
+	pasient_id,
+    CONCAT(pasient_id, LENGTH(etternavn), YEAR(fodselsdag)) as passord
+FROM pasienter_med_provins;
+
+-- Oppgave 5 -- 
+-- Hver innleggelse koster 500 kr for pasienter som ikke har forsikring, og 100 kr for pasienter med forsikring. --
+-- Alle pasienter med en pasient_id som er et partall har forsikring. Gi hver pasient enten Ja eller Nei for hvorvidt de har forsikring eller ikke. --
+-- Summer innleggelses kostnaden for hver forsikrings gruppe (Ja eller Nei). --
+SELECT 
+	IF(pasient_id % 2 = 0, "Ja", "Nei") as har_forsikring,
+    SUM(500 * (1 - pasient_id & 1) + 100 * (pasient_id & 1)) AS total_kostnad
+FROM pasienter_med_provins
+GROUP BY har_forsikring;

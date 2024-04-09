@@ -46,7 +46,16 @@ FROM pasienter_med_provins;
 -- Alle pasienter med en pasient_id som er et partall har forsikring. Gi hver pasient enten Ja eller Nei for hvorvidt de har forsikring eller ikke. --
 -- Summer innleggelses kostnaden for hver forsikrings gruppe (Ja eller Nei). --
 SELECT 
-	IF(pasient_id % 2 = 0, "Ja", "Nei") as har_forsikring,
-    SUM(500 * (1 - pasient_id & 1) + 100 * (pasient_id & 1)) AS total_kostnad
-FROM pasienter_med_provins
-GROUP BY har_forsikring;
+    har_forsikring,
+    CONCAT(SUM(IF(har_forsikring = 'Ja', 100, 500)), ' kr') AS total_kostnad
+FROM (
+    SELECT 
+        pasient_id,
+        IF(pasient_id % 2 = 0, 'Ja', 'Nei') AS har_forsikring
+    FROM 
+        pasienter_med_provins
+) AS forsikring_status
+GROUP BY 
+    har_forsikring;
+
+

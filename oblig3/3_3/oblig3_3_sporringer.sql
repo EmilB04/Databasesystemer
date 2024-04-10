@@ -58,4 +58,41 @@ FROM (
 GROUP BY 
     har_forsikring;
 
+-- Oppgave 6 --
+-- Vis fullt provinsnavn for de provinsene som har flere menn(M) enn kvinner(F). -- 
+SELECT 
+    p.provins_navn
+FROM 
+    provins p
+JOIN 
+    pasienter_med_provins pmp ON p.provins_id = pmp.provins_id
+GROUP BY 
+    p.provins_navn
+HAVING 
+    SUM(pmp.kjonn = 'M') > SUM(pmp.kjonn = 'F');
+
+
+-- Oppgave 7 -- 
+/*Vi leter etter en bestemt pasient. Hent all informasjon for pasienten som oppfyller følgende kriterier:
+fornavn har en r som 3 bokstav
+kjønn er kvinne (F)
+er født i februar, mai eller desember
+veier mellom 60 og 80 kg
+pasient id er et oddetall
+hun kommer fra Hamilton*/ 
+SELECT *
+FROM pasienter_med_provins 
+WHERE 
+    fornavn LIKE '__r%' AND 
+    kjonn = 'F' AND
+    (MONTH(fodselsdag) IN (2, 5, 12)) AND
+    vekt BETWEEN 60 AND 80 AND
+    pasient_id % 2 != 0 AND 
+    sted = 'Hamilton';
+
+
+-- Oppgave 8 -- 
+-- Vis hvor mange prosent av pasientene som er menn. Avrund svaret til nærmeste hundre og vis det i prosent. -- 
+SELECT CONCAT(ROUND(SUM(IF(kjonn = 'M', 1, 0)) / COUNT(*) * 100, 0), "%") AS prosent_menn
+FROM pasienter_med_provins;
 

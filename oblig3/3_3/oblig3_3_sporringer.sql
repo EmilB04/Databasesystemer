@@ -96,3 +96,39 @@ WHERE
 SELECT CONCAT(ROUND(SUM(IF(kjonn = 'M', 1, 0)) / COUNT(*) * 100, 0), "%") AS prosent_menn
 FROM pasienter_med_provins;
 
+-- Oppgave 9 --
+-- For hver dag, vis totalt antall innleggelser denne dagen. Vis antall endringer fra dagen før. -- 
+SELECT 
+    innleggelsesdato,
+    antall_innleggelser,
+    antall_innleggelser - (SELECT COUNT(*) FROM innleggelser WHERE DATE(innleggelsesdato) = DATE_SUB(d.innleggelsesdato, INTERVAL 1 DAY)) AS endringer_fra_forrige_dag
+FROM (
+    SELECT 
+        DATE(innleggelsesdato) AS innleggelsesdato,
+        COUNT(*) AS antall_innleggelser
+    FROM innleggelser
+    GROUP BY DATE(innleggelsesdato)
+) AS d
+ORDER BY innleggelsesdato;
+
+-- Oppgave 10 -- 
+-- Sorter prvins navn i fallende rekkefølge på en slik måte at 'Ontario' alltid er den øverste. -- 
+SELECT provins_navn
+FROM (
+	SELECT provins_navn, 
+    IF(provins_navn = "Ontario", 0, 1) as ontario
+    FROM provins
+) as ontario_tabell
+ORDER BY ontario, provins_navn;
+
+-- Oppgave 11 -- 
+-- Vi trenger en oversikt som viser hvor mange innleggelser en lege har foretatt hvert år. Vis lege_id, fullt navn på legen, spsialitet, år og totalt_innleggelser for det året. -- 
+SELECT 
+	l.lege_id, 
+	CONCAT(fornavn, " ", etternavn) as fullt_navn, 
+	l.spesialitet, 
+	YEAR(innleggelsesdato) as år, 
+	COUNT(*) as antall_håndteringer
+FROM leger l
+JOIN innleggelser i on l.lege_id = i.lege_id
+GROUP BY YEAR(innleggelsesdato), lege_id;
